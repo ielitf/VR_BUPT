@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <color name="transparenthalf">#e0000000</color>
+    <color name="blue">#25b6ed</color>
+    <color name="module_title_gray">#666666</color>
+    <color name="title_gray">#333333</color>
+    <color name="text_gray">#666666</color>
+    <color name="grey_line">#cccccc</color>
+    <color name="more_text_color">#999999</color>
+    <color name="divider_list">#d1c4af</color>
+    <color name="navigation_unselect">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="popcolor">#ecdecb</color>
+    <color name="popcolor2">#b6916e</color>
+    <color name="black">#000000</color>
+
+    <color name="act_background">#efefef</color>
+    <color name="gary">#898989</color>
+
+    <color name="me_gap">#F5DCBA</color>
+    <color name="me_item">#FBF2E6</color>
+    <!-- 导航栏背景颜色 -->
+    <color name="top_back">#845a33</color>
+    <!-- 导航栏字体选中颜色 -->
+    <color name="navigation_select">#3b240f</color>
+    <!-- 交通导航栏背景颜色 -->
+    <color name="traffic_item_color">#f4eadd</color>
+
+    <color name="button_back">#00FF9E</color>
+    <color name="button_back2">#5c78a2</color>
+    <color name="test1">#537edc</color>
+    <color name="test2">#990033</color>
+    <color name="buddist">#f8f2e9</color>
 </resources>

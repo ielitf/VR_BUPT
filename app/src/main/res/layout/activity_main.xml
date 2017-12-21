@@ -1,16 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bupt.com.vr_bupt.MainActivity">
-
-
-
-    <TextView
+    android:orientation="vertical"
+    >
+    <ListView
+        android:id="@+id/list_item"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="2dp"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
 
+        <RelativeLayout
+            android:id="@+id/summary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+             >
+
+            <ImageView
+                android:id="@+id/rb1"
+                android:layout_width="33dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb1"
+                android:layout_centerHorizontal="true"
+                android:text="首页"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/guide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            >
+
+            <ImageView
+                android:id="@+id/rb2"
+                android:layout_width="33dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb2"
+                android:layout_centerHorizontal="true"
+                android:text="分类"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/buddhist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+             >
+
+            <ImageView
+                android:id="@+id/rb3"
+                android:layout_width="33dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb3"
+                android:layout_centerHorizontal="true"
+                android:text="发现"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/specialty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+             >
+
+            <ImageView
+                android:id="@+id/rb4"
+                android:layout_width="33dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb4"
+                android:layout_centerHorizontal="true"
+                android:text="本地"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+    </LinearLayout>
 </LinearLayout>

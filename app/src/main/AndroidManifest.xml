@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bupt.com.vr_bupt">
+    <uses-permission android:name="android.permission.INTERNET" /><!--允许应用可以访问网络。-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><!--允许应用读取外部存储。-->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><!--允许应用写入外部存储。-->
+
 
     <application
         android:allowBackup="true"

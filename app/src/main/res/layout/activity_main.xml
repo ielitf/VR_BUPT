@@ -25,7 +25,7 @@
         android:paddingTop="5dp">
 
         <RelativeLayout
-            android:id="@+id/summary"
+            android:id="@+id/RelativeLayout1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -45,12 +45,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb1"
                 android:layout_centerHorizontal="true"
-                android:text="首页"
+                android:text="在线播放"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/guide"
+            android:id="@+id/RelativeLayout2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -70,12 +70,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb2"
                 android:layout_centerHorizontal="true"
-                android:text="分类"
+                android:text="本地播放"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/buddhist"
+            android:id="@+id/RelativeLayout3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -100,7 +100,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/specialty"
+            android:id="@+id/RelativeLayout4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb4"
                 android:layout_centerHorizontal="true"
-                android:text="本地"
+                android:text="我的"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
 

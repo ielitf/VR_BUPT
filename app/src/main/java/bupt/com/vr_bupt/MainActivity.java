@@ -82,15 +82,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
             case R.id.RelativeLayout1:
                 break;
             case R.id.RelativeLayout2:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    if (context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
-                    }
+                if (Build.VERSION.SDK_INT >= 23 && (context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
+                } else {
+                    Intent intent = new Intent(this, FilePickerActivity.class);
+                    intent.putExtra(FilePickerActivity.ARG_FILTER, Pattern.compile("(.*\\.mp4$)||(.*\\.avi$)||(.*\\.wmv$)"));
+                    startActivityForResult(intent, 1);
                 }
-                Intent intent = new Intent(this, FilePickerActivity.class);
-                intent.putExtra(FilePickerActivity.ARG_FILTER, Pattern.compile("(.*\\.mp4$)||(.*\\.avi$)||(.*\\.wmv$)"));
-                startActivityForResult(intent, 1);
                 break;
+
             case R.id.RelativeLayout3:
                 Intent intent2 = new Intent(this, LocalVedioActivity.class);
                 startActivity(intent2);

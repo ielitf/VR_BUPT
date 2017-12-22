@@ -2,22 +2,18 @@ package bupt.com.vr_bupt;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-
 import com.martin.ads.vrlib.constant.MimeType;
 import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
 import com.martin.ads.vrlib.ui.PanoPlayerActivity;
 import com.martin.ads.vrlib.utils.BitmapUtils;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
-
 import java.util.ArrayList;
 import java.util.regex.Pattern;
-
 import bupt.com.vr_bupt.adapter.ComAdapter;
 import bupt.com.vr_bupt.bean.CommonBean;
 import bupt.com.vr_bupt.data.SummaryData;
@@ -78,12 +74,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
             case R.id.RelativeLayout1:
                     break;
             case R.id.RelativeLayout2:
-                Intent intent=new Intent(MainActivity.this, FilePickerActivity.class);
+                Intent intent=new Intent(this, FilePickerActivity.class);
                 intent.putExtra(FilePickerActivity.ARG_FILTER, Pattern.compile("(.*\\.mp4$)||(.*\\.avi$)||(.*\\.wmv$)"));
                 startActivityForResult(intent, 1);
                     break;
             case R.id.RelativeLayout3:
-
+                Intent intent2 = new Intent(this,LocalVedioActivity.class);
+                startActivity(intent2);
                     break;
             case R.id.RelativeLayout4:
 

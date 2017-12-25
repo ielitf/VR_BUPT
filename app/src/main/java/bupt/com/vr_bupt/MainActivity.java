@@ -49,7 +49,43 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                filePath = "http://cache.utovr.com/201508270528174780.m3u8";
+//                filePath = "http://cache.utovr.com/201508270528174780.m3u8";
+                switch (position){
+                    case 0:
+//                        filePath = "http://192.168.9.242/demo.mp4 ";//内网
+                        filePath = "http://182.18.26.6/demo.mp4";//公网
+                        break;
+                    case 1:
+//                        filePath = "http://192.168.9.242/congo.mp4 ";
+                        filePath = "http://182.18.26.6/congo.mp4";
+                        break;
+                    case 2:
+//                        filePath = "http://192.168.9.242/IFA2016 VR 1-MX005_injected.mp4 ";
+                        filePath = "http://182.18.26.6/IFA2016 VR 1-MX005_injected.mp4";
+                        break;
+                    case 3:
+//                        filePath = "http://192.168.9.242/MX026 Citadines Melbourne-V5_injected.mp4 ";
+                        filePath = "http://182.18.26.6/MX026 Citadines Melbourne-V5_injected.mp4";
+                        break;
+                    case 4:
+//                        filePath = "http://192.168.9.242/MX027 Somerset Hobart-V6_injected.mp4 ";
+                        filePath = "http://182.18.26.6/MX027 Somerset Hobart-V6_injected.mp4 ";
+                        break;
+                    case 5:
+//                        filePath = "http://192.168.9.242/MX028 Ayutthaya phase2_injected.mp4 ";
+                        filePath = "http://182.18.26.6/MX028 Ayutthaya phase2_injected.mp4";
+                        break;
+                    case 6:
+//                        filePath = "http://192.168.9.242/加勒比海巴哈马旅游-音乐版-MX016_injected.mp4 ";
+                        filePath = "http://182.18.26.6/加勒比海巴哈马旅游-音乐版-MX016_injected.mp4";
+                        break;
+                    case 7:
+//                        filePath = "http://192.168.9.242/泰国大城府遗迹延时VR-MX012_injected.mp4 ";
+                        filePath = "http://182.18.26.6/泰国大城府遗迹延时VR-MX012_injected.mp4";
+                        break;
+                    default:
+                        break;
+                }
                 mimeType = MimeType.ONLINE | MimeType.VIDEO;
                 start();
             }

@@ -35,7 +35,7 @@
             <ImageView
                 android:id="@+id/rb1"
                 android:layout_width="33dp"
-                android:layout_height="20dp"
+                android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/ic_launcher" />
 
@@ -60,7 +60,7 @@
             <ImageView
                 android:id="@+id/rb2"
                 android:layout_width="33dp"
-                android:layout_height="20dp"
+                android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/ic_launcher" />
 
@@ -85,7 +85,7 @@
             <ImageView
                 android:id="@+id/rb3"
                 android:layout_width="33dp"
-                android:layout_height="20dp"
+                android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/ic_launcher" />
 
@@ -110,7 +110,7 @@
             <ImageView
                 android:id="@+id/rb4"
                 android:layout_width="33dp"
-                android:layout_height="20dp"
+                android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/ic_launcher" />
 

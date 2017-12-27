@@ -13,6 +13,7 @@ import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
 import com.martin.ads.vrlib.ui.PanoPlayerActivity;
 
 /**
+ * test
  * Created by Ads on 2016/6/25.
  */
 public class DemoWithGLSurfaceView extends AppCompatActivity {

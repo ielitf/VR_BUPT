@@ -1,1 +1,1 @@
-include ':app', ':filepicker', ':vrlib', ':RajawaliVR'
+include ':app', ':filepicker', ':vrlib'

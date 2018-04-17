@@ -4,10 +4,13 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -24,6 +27,7 @@ import java.util.regex.Pattern;
 import bupt.com.vr_bupt.adapter.ComAdapter;
 import bupt.com.vr_bupt.bean.CommonBean;
 import bupt.com.vr_bupt.data.SummaryData;
+import bupt.com.vr_bupt.utils.ImageUtils;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnClickListener {
     private Context context;
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
     private int mimeType;
     private String filePath = "~(～￣▽￣)～";
     private boolean USE_DEFAULT_ACTIVITY = true;
+    private static final int CODE_GALLERY_REQUEST = 111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
         switch (v.getId()) {
             case R.id.RelativeLayout1:
                 break;
-            case R.id.RelativeLayout2:
+            case R.id.RelativeLayout2://打开本地视频
                 if (Build.VERSION.SDK_INT >= 23 && (context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
                 } else {
@@ -127,9 +132,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                 }
                 break;
 
-            case R.id.RelativeLayout3:
-                Intent intent2 = new Intent(this, LocalVedioActivity.class);
-                startActivity(intent2);
+            case R.id.RelativeLayout3://打开本地相册
+//                Intent intent2 = new Intent(this, LocalVedioActivity.class);
+//                startActivity(intent2);
+                choseHeadImageFromGallery();
                 break;
             case R.id.RelativeLayout4:
 
@@ -164,12 +170,32 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
         }
     }
 
+    /**
+     * 从本地相册选取图片
+     */
+
+    private void choseHeadImageFromGallery() {
+
+        Intent intent = new Intent(Intent.ACTION_PICK, null);
+        // 此处调用了图片选择器
+        // 如果直接写intent.setDataAndType("image/*");
+        // 调用的是系统图库
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+        startActivityForResult(intent, CODE_GALLERY_REQUEST);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK) {
             filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
             mimeType = MimeType.LOCAL_FILE | MimeType.VIDEO;
+            start();
+        }
+        if (requestCode == CODE_GALLERY_REQUEST) {
+            Uri uri = data.getData();
+            filePath = ImageUtils.getRealPathFromURI(MainActivity.this, uri);
+            Log.e("===========", "filePath:" + filePath);
+            mimeType = MimeType.LOCAL_FILE | MimeType.PICTURE;
             start();
         }
     }

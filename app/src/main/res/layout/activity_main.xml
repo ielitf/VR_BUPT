@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb3"
                 android:layout_centerHorizontal="true"
-                android:text="发现"
+                android:text="本地相册"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
 

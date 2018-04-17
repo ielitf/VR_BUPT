@@ -13,6 +13,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -140,5 +141,34 @@ public class BitmapUtils {
         options.inScaled=false;
         Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),resourceId,options);
         return bitmap;
+    }
+    public static Bitmap loadBitmapFromFilePath(Context context,String filePath){
+        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+
+
+        return BitmapUtils.getBitmapFromByte(BitmapUtils.getBitmapByte(bitmap));
+    }
+
+    public static byte[] getBitmapByte(Bitmap bitmap){
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        //参数1转换类型，参数2压缩质量，参数3字节流资源
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+        try {
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return out.toByteArray();
+    }
+
+    public static Bitmap getBitmapFromByte(byte[] temp){
+        if(temp != null){
+            Bitmap bitmap = BitmapFactory.decodeByteArray(temp, 0, temp.length);
+            return bitmap;
+        }else{
+            return null;
+        }
     }
 }

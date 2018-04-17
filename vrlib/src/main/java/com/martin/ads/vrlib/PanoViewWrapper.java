@@ -104,6 +104,10 @@ public class PanoViewWrapper {
             else if((mimeType & MimeType.RAW)!=0)
                 bitmap= BitmapUtils.loadBitmapFromRaw(context,
                         Integer.valueOf(uri.getLastPathSegment()));
+            else if ((mimeType & MimeType.LOCAL_FILE)!=0){
+                bitmap=BitmapUtils.loadBitmapFromFilePath(context,filePath);
+            }
+
             else throw new RuntimeException("not implemented yet!");
         }
 

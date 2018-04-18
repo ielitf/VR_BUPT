@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.martin.ads.vrlib.constant.MimeType;
+import com.martin.ads.vrlib.ext.GirlFriendNotFoundException;
 import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
 import com.martin.ads.vrlib.ui.PanoPlayerActivity;
 import com.martin.ads.vrlib.utils.BitmapUtils;
@@ -135,7 +136,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
             case R.id.RelativeLayout3://打开本地相册
 //                Intent intent2 = new Intent(this, LocalVedioActivity.class);
 //                startActivity(intent2);
-                choseHeadImageFromGallery();
+                if (Build.VERSION.SDK_INT >= 23 && (context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
+                } else{
+                    choseHeadImageFromGallery();
+                }
                 break;
             case R.id.RelativeLayout4:
 
@@ -186,17 +191,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-            mimeType = MimeType.LOCAL_FILE | MimeType.VIDEO;
-            start();
+        if (resultCode == RESULT_CANCELED) {
+            return;
         }
-        if (requestCode == CODE_GALLERY_REQUEST) {
-            Uri uri = data.getData();
-            filePath = ImageUtils.getRealPathFromURI(MainActivity.this, uri);
-            Log.e("===========", "filePath:" + filePath);
-            mimeType = MimeType.LOCAL_FILE | MimeType.PICTURE;
-            start();
+        if(resultCode == RESULT_OK){
+            if (requestCode == 1 ) {
+                filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
+                mimeType = MimeType.LOCAL_FILE | MimeType.VIDEO;
+                start();
+            }else
+            if (requestCode == CODE_GALLERY_REQUEST ) {
+                Uri uri = data.getData();
+                filePath = ImageUtils.getRealPathFromURI(MainActivity.this, uri);
+                Log.e("===========", "filePath:" + filePath);
+                mimeType = MimeType.LOCAL_FILE | MimeType.PICTURE;
+                start();
+            }else {
+                throw new GirlFriendNotFoundException();
+            }
+        }else{
+            throw new GirlFriendNotFoundException();
         }
     }
 }

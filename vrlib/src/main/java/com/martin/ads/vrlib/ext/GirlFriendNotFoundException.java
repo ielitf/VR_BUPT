@@ -6,6 +6,6 @@ package com.martin.ads.vrlib.ext;
 
 public class GirlFriendNotFoundException extends IllegalStateException {
     public GirlFriendNotFoundException() {
-        super("Miss YSJ,I want nothing but you.");
+        super("============Miss YSJ,I want nothing but you.===========");
     }
 }

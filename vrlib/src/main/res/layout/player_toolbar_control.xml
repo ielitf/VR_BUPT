@@ -31,7 +31,7 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/voide_tool_large"
         android:background="@drawable/video_toolbar_tb_screen"
-        android:checked="true"
+        android:checked="false"
         android:text=""
         android:textOff=""
         android:textOn=""/>

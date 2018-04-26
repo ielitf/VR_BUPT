@@ -22,7 +22,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/popcolor2"
         android:paddingTop="5dp">
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+             >
+
+            <ImageView
+                android:id="@+id/rb0"
+                android:layout_width="33dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb0"
+                android:layout_centerHorizontal="true"
+                android:text="在线播放"
+                android:textColor="@color/green"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/RelativeLayout1"
@@ -30,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-             >
+            >
 
             <ImageView
                 android:id="@+id/rb1"
@@ -45,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb1"
                 android:layout_centerHorizontal="true"
-                android:text="在线播放"
+                android:text="本地播放"
+                android:textColor="@color/white"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
@@ -55,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            >
+             >
 
             <ImageView
                 android:id="@+id/rb2"
@@ -70,17 +98,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb2"
                 android:layout_centerHorizontal="true"
-                android:text="本地播放"
+                android:text="本地相册"
+                android:textColor="@color/white"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/RelativeLayout3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-             >
+            >
 
             <ImageView
                 android:id="@+id/rb3"
@@ -95,10 +123,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb3"
                 android:layout_centerHorizontal="true"
-                android:text="本地相册"
+                android:text="样例视频"
+                android:textColor="@color/white"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/RelativeLayout4"
             android:layout_width="0dp"
@@ -121,6 +149,7 @@
                 android:layout_below="@id/rb4"
                 android:layout_centerHorizontal="true"
                 android:text="我的"
+                android:textColor="@color/white"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
 

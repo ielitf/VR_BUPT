@@ -4,6 +4,7 @@
     <color name="transparent">#00000000</color>
     <color name="transparenthalf">#e0000000</color>
     <color name="blue">#25b6ed</color>
+    <color name="green">#00ff00</color>
     <color name="module_title_gray">#666666</color>
     <color name="title_gray">#333333</color>
     <color name="text_gray">#666666</color>
@@ -33,4 +34,6 @@
     <color name="test1">#537edc</color>
     <color name="test2">#990033</color>
     <color name="buddist">#f8f2e9</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

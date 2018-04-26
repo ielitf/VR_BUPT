@@ -122,35 +122,6 @@ public class PanoViewWrapper {
 
         hotspotList =new ArrayList<>();
 
-        if(videoHotspotPath!=null && !videoHotspotPath.isEmpty()){
-            hotspotList.add(VideoHotspot.with(statusHelper.getContext())
-                    .setPositionOrientation(
-                            PositionOrientation.newInstance()
-                                    .setX(-7.8f).setY(1.2f).setAngleY(-90)
-                    )
-                    .setUri(Uri.parse(videoHotspotPath))
-                    .setAssumedScreenSize(2.0f,1.0f)
-            );
-        }else{
-            hotspotList.add(ImageHotspot.with(statusHelper.getContext())
-                    .setPositionOrientation(
-                            PositionOrientation.newInstance()
-                                    .setY(15).setAngleX(90).setAngleY(-90)
-                    )
-                    .setBitmap( TextImageGenerator.newInstance()
-                            .setPadding(25)
-                            .setTextColor(Color.parseColor("#FFCE54"))
-                            .setBackgroundColor(Color.parseColor("#22000000"))
-                            .setTypeface(Typeface.createFromAsset(
-                                    statusHelper.getContext().getAssets(),
-                                    "fonts/font_26.ttf")
-                            )
-                            .setTextSize(55)
-                            .addTextToImage("I'm a text hotspot~")
-                    )
-            );
-        }
-
         hotspotList.add(ImageHotspot.with(statusHelper.getContext())
                 .setPositionOrientation(
                         PositionOrientation.newInstance()
@@ -171,6 +142,7 @@ public class PanoViewWrapper {
             glSurfaceView.setPreserveEGLContextOnPause(true);
         }
 
+//        statusHelper.setPanoDisPlayMode(PanoMode.SINGLE_SCREEN);
         statusHelper.setPanoDisPlayMode(PanoMode.DUAL_SCREEN);
         statusHelper.setPanoInteractiveMode(PanoMode.MOTION);
 

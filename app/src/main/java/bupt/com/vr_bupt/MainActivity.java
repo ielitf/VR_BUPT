@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.martin.ads.vrlib.constant.MimeType;
 import com.martin.ads.vrlib.ext.GirlFriendNotFoundException;
@@ -35,7 +38,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
     private ListView mListView;
     private ArrayList<CommonBean> mData;
     private ComAdapter adapter;
-    private View relativeLayout1, relativeLayout2, relativeLayout3, relativeLayout4;
+    private RelativeLayout relativeLayout[] = new RelativeLayout[5];
+    private TextView textView[] = new TextView[5];
+    private int k;
     private String videoHotspotPath;
     private boolean planeModeEnabled;
     private int mimeType;
@@ -100,14 +105,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
 
     private void initViews() {
         mListView = (ListView) findViewById(R.id.list_item);
-        relativeLayout1 = findViewById(R.id.RelativeLayout1);
-        relativeLayout2 = findViewById(R.id.RelativeLayout2);
-        relativeLayout3 = findViewById(R.id.RelativeLayout3);
-        relativeLayout4 = findViewById(R.id.RelativeLayout4);
-        relativeLayout1.setOnClickListener(this);
-        relativeLayout2.setOnClickListener(this);
-        relativeLayout3.setOnClickListener(this);
-        relativeLayout4.setOnClickListener(this);
+        relativeLayout[0] = (RelativeLayout) findViewById(R.id.RelativeLayout0);
+        relativeLayout[1] = (RelativeLayout) findViewById(R.id.RelativeLayout1);
+        relativeLayout[2] = (RelativeLayout) findViewById(R.id.RelativeLayout2);
+        relativeLayout[3] = (RelativeLayout) findViewById(R.id.RelativeLayout3);
+        relativeLayout[4] = (RelativeLayout) findViewById(R.id.RelativeLayout4);
+        textView[0]= (TextView) findViewById(R.id.text0);
+        textView[1] = (TextView) findViewById(R.id.text1);
+        textView[2] = (TextView) findViewById(R.id.text2);
+        textView[3] = (TextView) findViewById(R.id.text3);
+        textView[4] = (TextView) findViewById(R.id.text4);
+        relativeLayout[0].setOnClickListener(this);
+        relativeLayout[1].setOnClickListener(this);
+        relativeLayout[2].setOnClickListener(this);
+        relativeLayout[3].setOnClickListener(this);
+        relativeLayout[4].setOnClickListener(this);
     }
 
     private void addData() {
@@ -120,10 +132,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
     @Override
     public void onClick(View v) {
         videoHotspotPath = null;
+
         switch (v.getId()) {
-            case R.id.RelativeLayout1:
+            case R.id.RelativeLayout0:
+                k = 0;
+                setTextColor(k);
                 break;
-            case R.id.RelativeLayout2://打开本地视频
+            case R.id.RelativeLayout1://打开本地视频
+                k = 1;
+                setTextColor(k);
                 if (Build.VERSION.SDK_INT >= 23 && (context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
                 } else {
@@ -133,7 +150,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                 }
                 break;
 
-            case R.id.RelativeLayout3://打开本地相册
+            case R.id.RelativeLayout2://打开本地相册
+                k = 2;
+                setTextColor(k);
 //                Intent intent2 = new Intent(this, LocalVedioActivity.class);
 //                startActivity(intent2);
                 if (Build.VERSION.SDK_INT >= 23 && (context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
@@ -142,13 +161,32 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                     choseHeadImageFromGallery();
                 }
                 break;
+            case R.id.RelativeLayout3:
+                k = 3;
+                setTextColor(k);
+                Intent intent = new Intent(this,DemoVidioActivity.class);
+                startActivity(intent);
+                break;
             case R.id.RelativeLayout4:
-
+                k = 4;
+                setTextColor(k);
                 break;
             default:
                 break;
         }
     }
+
+    private void setTextColor(int k) {
+        for(int i = 0; i< textView.length; i++){
+            if (i == k){
+                textView[i].setTextColor(Color.GREEN);
+            }else{
+                textView[i].setTextColor(Color.WHITE);
+            }
+        }
+
+    }
+
 
     private void start() {
         Pano360ConfigBundle configBundle = Pano360ConfigBundle
@@ -158,13 +196,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                 .setPlaneModeEnabled(false)
                 .setRemoveHotspot(true);//去除中间那个“智障科技图片的”;
 
-        if ((mimeType & MimeType.BITMAP) != 0) {
-            //add your own picture here
-            // this interface may be removed in future version.
-            configBundle.startEmbeddedActivityWithSpecifiedBitmap(
-                    this, BitmapUtils.loadBitmapFromRaw(this, R.mipmap.ic_launcher));
-            return;
-        }
+//        if ((mimeType & MimeType.BITMAP) != 0) {
+//            //add your own picture here
+//            // this interface may be removed in future version.
+//            configBundle.startEmbeddedActivityWithSpecifiedBitmap(
+//                    this, BitmapUtils.loadBitmapFromRaw(this, R.mipmap.ic_launcher));
+//            return;
+//        }
 
         if (USE_DEFAULT_ACTIVITY)
             configBundle.startEmbeddedActivity(this);

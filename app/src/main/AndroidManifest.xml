@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bupt.com.vr_bupt">
-    <uses-permission android:name="android.permission.INTERNET" /><!--允许应用可以访问网络。-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><!--允许应用读取外部存储。-->
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /><!--允许应用写入外部存储。-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许应用可以访问网络。 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 允许应用读取外部存储。 -->
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- 允许应用写入外部存储。 -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,14 +15,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LocalVedioActivity"></activity>
+        <activity android:name=".LocalVedioActivity" />
+        <activity android:name=".DemoWithGLSurfaceView" />
+        <activity
+            android:name=".DemoVidioActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            >
+        </activity>
     </application>
 
 </manifest>

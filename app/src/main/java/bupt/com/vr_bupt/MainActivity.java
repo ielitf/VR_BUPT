@@ -71,26 +71,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                         filePath = "http://182.18.26.6/congo.mp4";
                         break;
                     case 2:
+//                        filePath = "http://192.168.9.242/1aaefce3a443cda38f153c09cd63cdcf.mp4 ";
+                        filePath = "http://182.18.26.6/1aaefce3a443cda38f153c09cd63cdcf.mp4";
+                        break;
+                    case 3:
 //                        filePath = "http://192.168.9.242/IFA2016 VR 1-MX005_injected.mp4 ";
                         filePath = "http://182.18.26.6/IFA2016 VR 1-MX005_injected.mp4";
                         break;
-                    case 3:
+                    case 4:
 //                        filePath = "http://192.168.9.242/MX026 Citadines Melbourne-V5_injected.mp4 ";
                         filePath = "http://182.18.26.6/MX026 Citadines Melbourne-V5_injected.mp4";
                         break;
-                    case 4:
+                    case 5:
 //                        filePath = "http://192.168.9.242/MX027 Somerset Hobart-V6_injected.mp4 ";
                         filePath = "http://182.18.26.6/MX027 Somerset Hobart-V6_injected.mp4 ";
                         break;
-                    case 5:
+                    case 6:
 //                        filePath = "http://192.168.9.242/MX028 Ayutthaya phase2_injected.mp4 ";
                         filePath = "http://182.18.26.6/MX028 Ayutthaya phase2_injected.mp4";
                         break;
-                    case 6:
+                    case 7:
 //                        filePath = "http://192.168.9.242/加勒比海巴哈马旅游-音乐版-MX016_injected.mp4 ";
                         filePath = "http://182.18.26.6/加勒比海巴哈马旅游-音乐版-MX016_injected.mp4";
                         break;
-                    case 7:
+                    case 8:
 //                        filePath = "http://192.168.9.242/泰国大城府遗迹延时VR-MX012_injected.mp4 ";
                         filePath = "http://182.18.26.6/泰国大城府遗迹延时VR-MX012_injected.mp4";
                         break;

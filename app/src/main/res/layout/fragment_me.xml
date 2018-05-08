@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/back"
+    >
+
+    <include
+        android:id="@+id/channel_top"
+        layout="@layout/main_top"
+        android:visibility="visible" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/back"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/transparent" />
+
+            <LinearLayout
+                android:id="@+id/me_top"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/me_top_touxiang"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="26dp"
+                    android:background="@mipmap/guide"
+                    android:scaleType="centerInside" />
+
+                <TextView
+                    android:id="@+id/me_top_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:text="用户名"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/space_14" />
+
+                <TextView
+                    android:id="@+id/me_top_btn"
+                    style="@style/textview_styles" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/transparent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                >
+                <TextView
+                    android:id="@+id/fans_tv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/px20_dp"
+                    android:text="我的VR"
+                    android:gravity="center_horizontal"
+                    android:drawableTop="@mipmap/ic_launcher"
+                    android:drawablePadding="@dimen/px10_dp"
+                    />
+                <TextView
+                    android:id="@+id/comment_tv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/px20_dp"
+                    android:text="商城"
+                    android:gravity="center_horizontal"
+                    android:drawableTop="@mipmap/ic_launcher"
+                    android:drawablePadding="@dimen/px10_dp"
+                    />
+                <TextView
+                    android:id="@+id/like_tv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/px20_dp"
+                    android:text="观看记录"
+                    android:gravity="center_horizontal"
+                    android:drawableTop="@mipmap/ic_launcher"
+                    android:drawablePadding="@dimen/px10_dp"
+                    />
+                <TextView
+                    android:id="@+id/reply_tv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/px20_dp"
+                    android:text="本地VR"
+                    android:gravity="center_horizontal"
+                    android:drawableTop="@mipmap/ic_launcher"
+                    android:drawablePadding="@dimen/px10_dp"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/transparent" />
+
+            <bupt.com.vr_bupt.widget.NoScrollListView
+                android:id="@+id/me_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/transparent"
+                android:dividerHeight="@dimen/px2_dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

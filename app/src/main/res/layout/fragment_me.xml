@@ -70,7 +70,7 @@
                 android:background="@color/white"
                 >
                 <TextView
-                    android:id="@+id/fans_tv"
+                    android:id="@+id/mine_tv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     android:drawablePadding="@dimen/px10_dp"
                     />
                 <TextView
-                    android:id="@+id/comment_tv"
+                    android:id="@+id/mall_tv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                     android:drawablePadding="@dimen/px10_dp"
                     />
                 <TextView
-                    android:id="@+id/like_tv"
+                    android:id="@+id/history_tv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                     android:drawablePadding="@dimen/px10_dp"
                     />
                 <TextView
-                    android:id="@+id/reply_tv"
+                    android:id="@+id/local_tv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"

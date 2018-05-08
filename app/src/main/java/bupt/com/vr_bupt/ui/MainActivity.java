@@ -1,32 +1,44 @@
 package bupt.com.vr_bupt.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.martin.ads.vrlib.constant.MimeType;
+import com.martin.ads.vrlib.ext.GirlFriendNotFoundException;
+import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
+import com.martin.ads.vrlib.ui.PanoPlayerActivity;
+import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
 import bupt.com.vr_bupt.R;
+import bupt.com.vr_bupt.control.CodeConstants;
 import bupt.com.vr_bupt.ui.channel.ChannelFragment;
 import bupt.com.vr_bupt.ui.main.HomeFragment;
 import bupt.com.vr_bupt.ui.me.MeFragment;
 import bupt.com.vr_bupt.ui.news.NewsFragment;
+import bupt.com.vr_bupt.ui.publish.PublishActivity;
+import bupt.com.vr_bupt.utils.ImageUtils;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnClickListener {
     private TextView[] textViews = new TextView[4];
     private ImageView[] imageButtons = new ImageView[4];
     private RelativeLayout publishLayout;
-    private HomeFragment homeFragment=null;
-    private ChannelFragment channelFragment=null;
-    private NewsFragment newsFragment=null;
-    private MeFragment meFragment=null;
+    private HomeFragment homeFragment = null;
+    private ChannelFragment channelFragment = null;
+    private NewsFragment newsFragment = null;
+    private MeFragment meFragment = null;
     private FragmentManager fragmentManager;
     private int mIndex = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,17 +60,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
         imageButtons[3] = (ImageView) findViewById(R.id.rb_me);
         publishLayout = (RelativeLayout) findViewById(R.id.re_public);
     }
+
     public void jianTing(View view) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         mIndex = view.getId();
         showFragment(transaction, mIndex);
     }
+
     private void showFragment(FragmentTransaction transaction, int tag) {
         switch (tag) {
             case R.id.re_zhy://主页
                 hideFragments(transaction);
                 if (homeFragment == null) {
-                    homeFragment=new HomeFragment();
+                    homeFragment = new HomeFragment();
                     transaction.add(R.id.main_con, homeFragment);
                 } else {
                     transaction.show(homeFragment);
@@ -72,10 +86,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
 
             case R.id.re_yyt://频道
                 hideFragments(transaction);
-                if (channelFragment==null){
-                    channelFragment=new ChannelFragment();
-                    transaction.add(R.id.main_con,channelFragment);
-                }else{
+                if (channelFragment == null) {
+                    channelFragment = new ChannelFragment();
+                    transaction.add(R.id.main_con, channelFragment);
+                } else {
                     transaction.show(channelFragment);
                 }
                 setTextColor(1);
@@ -85,11 +99,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                 imageButtons[3].setBackgroundResource(R.mipmap.main_me_icon_normal);
                 break;
             case R.id.re_public://发布视频
-                Toast.makeText(this,"我要发布视频喽~~",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, PublishActivity.class);
+                startActivity(intent);
                 break;
             case R.id.re_se://消息
                 hideFragments(transaction);
-                if (newsFragment== null) {
+                if (newsFragment == null) {
                     newsFragment = new NewsFragment();
                     transaction.add(R.id.main_con, newsFragment);
                 } else {
@@ -127,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
         if (homeFragment != null) {
             transaction.hide(homeFragment);
         }
-        if (channelFragment!=null){
+        if (channelFragment != null) {
             transaction.hide(channelFragment);
         }
 
@@ -151,23 +166,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
             }
         }
     }
+
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.RelativeLayout0:
-                break;
-            case R.id.RelativeLayout1://打开本地视频
-                break;
-
-            case R.id.RelativeLayout2://打开本地相册
-                break;
-            case R.id.RelativeLayout3:
-                break;
-            case R.id.RelativeLayout4:
-                break;
             default:
                 break;
         }
     }
+
+
 }

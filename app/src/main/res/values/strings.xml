@@ -4,4 +4,9 @@
     <string name="title_activity_demo_vidio">DemoVidioActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="main_zhy">主页</string>
+    <string name="main_yyt">頻道</string>
+    <string name="main_public">发布</string>
+    <string name="main_se">消息</string>
+    <string name="main_me">我的</string>
 </resources>

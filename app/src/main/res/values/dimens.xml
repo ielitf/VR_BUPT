@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="tab_title_text_size">11sp</dimen>
     <dimen name="space_divide_list">1dp</dimen>
     <dimen name="space_listview">10dp</dimen>
     <dimen name="guide_left">26dp</dimen>

@@ -16,6 +16,7 @@
     <color name="popcolor">#ecdecb</color>
     <color name="popcolor2">#b6916e</color>
     <color name="black">#000000</color>
+    <color name="back">#eeeeee</color>
 
     <color name="act_background">#efefef</color>
     <color name="gary">#898989</color>
@@ -23,7 +24,7 @@
     <color name="me_gap">#F5DCBA</color>
     <color name="me_item">#FBF2E6</color>
     <!-- 导航栏背景颜色 -->
-    <color name="top_back">#845a33</color>
+    <color name="top_back">#5c78a2</color>
     <!-- 导航栏字体选中颜色 -->
     <color name="navigation_select">#3b240f</color>
     <!-- 交通导航栏背景颜色 -->
@@ -34,6 +35,6 @@
     <color name="test1">#537edc</color>
     <color name="test2">#990033</color>
     <color name="buddist">#f8f2e9</color>
-
+    <color name="grey">#808080</color>
     <color name="black_overlay">#66000000</color>
 </resources>

@@ -1,4 +1,4 @@
-package bupt.com.vr_bupt;
+package bupt.com.vr_bupt.ui;
 
 import android.Manifest;
 import android.content.Context;
@@ -22,18 +22,18 @@ import com.martin.ads.vrlib.constant.MimeType;
 import com.martin.ads.vrlib.ext.GirlFriendNotFoundException;
 import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
 import com.martin.ads.vrlib.ui.PanoPlayerActivity;
-import com.martin.ads.vrlib.utils.BitmapUtils;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import bupt.com.vr_bupt.R;
 import bupt.com.vr_bupt.adapter.ComAdapter;
 import bupt.com.vr_bupt.bean.CommonBean;
 import bupt.com.vr_bupt.data.SummaryData;
 import bupt.com.vr_bupt.utils.ImageUtils;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnClickListener {
+public class MainActivity2 extends AppCompatActivity implements AdapterView.OnClickListener {
     private Context context;
     private ListView mListView;
     private ArrayList<CommonBean> mData;
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        context = MainActivity.this;
+        setContentView(R.layout.activity_main2);
+        context = MainActivity2.this;
         initViews();
         addData();
         adapter = new ComAdapter(context, mData);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                         break;
                     case 1:
 //                        filePath = "http://192.168.9.242/congo.mp4 ";
-                        filePath = "http://182.18.26.6/congo.mp4";
+                        filePath = "http://182.18.26.6/带你去西藏.mp4";
                         break;
                     case 2:
 //                        filePath = "http://192.168.9.242/1aaefce3a443cda38f153c09cd63cdcf.mp4 ";
@@ -128,8 +128,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
 
     private void addData() {
         mData = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            mData.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i]));
+        for (int i = 0; i < SummaryData.channel_icon.length; i++) {
+            mData.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i], SummaryData.temple_url[i]));
         }
     }
 
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
             }else
             if (requestCode == CODE_GALLERY_REQUEST ) {
                 Uri uri = data.getData();
-                filePath = ImageUtils.getRealPathFromURI(MainActivity.this, uri);
+                filePath = ImageUtils.getRealPathFromURI(MainActivity2.this, uri);
                 Log.e("===========", "filePath:" + filePath);
                 mimeType = MimeType.LOCAL_FILE | MimeType.PICTURE;
                 start();

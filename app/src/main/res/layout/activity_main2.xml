@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ListView
+        android:id="@+id/list_item"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="2dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/popcolor2"
+        android:paddingTop="5dp">
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+             >
+
+            <ImageView
+                android:id="@+id/rb0"
+                android:layout_width="33dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb0"
+                android:layout_centerHorizontal="true"
+                android:text="在线播放"
+                android:textColor="@color/green"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            >
+
+            <ImageView
+                android:id="@+id/rb1"
+                android:layout_width="33dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb1"
+                android:layout_centerHorizontal="true"
+                android:text="本地播放"
+                android:textColor="@color/white"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+             >
+
+            <ImageView
+                android:id="@+id/rb2"
+                android:layout_width="33dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb2"
+                android:layout_centerHorizontal="true"
+                android:text="本地相册"
+                android:textColor="@color/white"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/RelativeLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            >
+
+            <ImageView
+                android:id="@+id/rb3"
+                android:layout_width="33dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb3"
+                android:layout_centerHorizontal="true"
+                android:text="样例视频"
+                android:textColor="@color/white"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/RelativeLayout4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+             >
+
+            <ImageView
+                android:id="@+id/rb4"
+                android:layout_width="33dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb4"
+                android:layout_centerHorizontal="true"
+                android:text="我的"
+                android:textColor="@color/white"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package bupt.com.vr_bupt;
+package bupt.com.vr_bupt.ui;
 
 import android.content.pm.ActivityInfo;
 import android.opengl.GLSurfaceView;
@@ -11,6 +11,8 @@ import android.view.WindowManager;
 import com.martin.ads.vrlib.PanoViewWrapper;
 import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
 import com.martin.ads.vrlib.ui.PanoPlayerActivity;
+
+import bupt.com.vr_bupt.R;
 
 /**
  * test

@@ -21,5 +21,20 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    <style name="textview_styles" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">14dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:background">@mipmap/arrow_right</item>
+    </style>
+    <style name="center_textview_styles" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/gary</item>
+        <item name="android:textSize">@dimen/space_14</item>
+    </style>
 </resources>

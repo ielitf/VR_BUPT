@@ -1,19 +1,16 @@
-package bupt.com.vr_bupt;
+package bupt.com.vr_bupt.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
 import com.martin.ads.vrlib.constant.MimeType;
 import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
 import com.martin.ads.vrlib.ui.PanoPlayerActivity;
-import com.martin.ads.vrlib.utils.BitmapUtils;
+
+import bupt.com.vr_bupt.R;
 
 /**
  */

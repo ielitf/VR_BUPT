@@ -7,7 +7,7 @@ public class CommonBean {
     private String url;
 
 
-    public CommonBean(int icon, String title,String url) {
+    public CommonBean(String url,int icon, String title) {
         this.icon = icon;
         this.title = title;
         this.url = url;

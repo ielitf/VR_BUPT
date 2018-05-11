@@ -65,8 +65,8 @@ public class HotFragment extends Fragment {
 
     private void addData() {
         mData = new ArrayList<>();
-        for (int i = 0; i < SummaryData.temple_icon.length; i++) {
-            mData.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i], SummaryData.temple_url[i]));
+        for (int i = 0; i < SummaryData.vr_video_icon.length; i++) {
+            mData.add(new CommonBean(SummaryData.vr_video_url[i],SummaryData.vr_video_icon[i], SummaryData.vr_video_title[i]));
         }
     }
 }

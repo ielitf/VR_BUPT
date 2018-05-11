@@ -37,4 +37,12 @@
         <item name="android:textColor">@color/gary</item>
         <item name="android:textSize">@dimen/space_14</item>
     </style>
+
+    <style name="edittext_styles" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/bg_edittext</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+    </style>
 </resources>

@@ -29,9 +29,9 @@ public class DemoVidioActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filePath = "android.resource://" + getPackageName() + "/" + R.raw.demo_vidio_test;
+//                filePath = "android.resource://" + getPackageName() + "/" + R.raw.demo_vidio_test;
                 mimeType = MimeType.RAW | MimeType.VIDEO;
-                start();
+//                start();
             }
         });
     }

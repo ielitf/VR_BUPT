@@ -3,21 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
     <include
         android:id="@+id/channel_top"
         layout="@layout/main_top"
         android:visibility="visible" />
 
     <EditText
+        style="@style/edittext_styles"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:hint="说点什么。。。"
-        android:textColorHint="@color/gary"
         android:gravity="start"
-
-        />
+        android:hint="说点什么。。。"
+        android:textColorHint="@color/gary" />
 
     <TextView
         android:id="@+id/add_tv"

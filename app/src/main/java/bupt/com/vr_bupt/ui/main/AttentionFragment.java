@@ -21,8 +21,11 @@ import bupt.com.vr_bupt.R;
 import bupt.com.vr_bupt.adapter.AttentionAdapter;
 import bupt.com.vr_bupt.adapter.AttentionAdapter2;
 import bupt.com.vr_bupt.adapter.CardRecordAdapter;
+import bupt.com.vr_bupt.adapter.VrAttentionAdapter;
+import bupt.com.vr_bupt.adapter.VrVideoAdapter;
 import bupt.com.vr_bupt.bean.CommonBean;
-import bupt.com.vr_bupt.data.SummaryData;
+import bupt.com.vr_bupt.bean.VrVideoBean;
+import bupt.com.vr_bupt.data.VrData;
 import bupt.com.vr_bupt.ui.DemoWithGLSurfaceView;
 import bupt.com.vr_bupt.widget.HorizontalListView;
 import bupt.com.vr_bupt.widget.NoScrollGridView;
@@ -32,14 +35,12 @@ import cn.lemon.view.adapter.Action;
 public class AttentionFragment extends Fragment{
     private Context context;
     protected View contentView;
-    private ArrayList<CommonBean> mData;
-    private RefreshRecyclerView mRecyclerView;
+    private ArrayList<VrVideoBean> mData;
+    private ArrayList<VrVideoBean> attentionData;
     private HorizontalListView attentionListView;
-    private AttentionAdapter attentionAdapter;
-    private AttentionAdapter2 attentionAdapter2;
+    private VrAttentionAdapter vrAttentionAdapter;
+    private VrVideoAdapter vrVideoAdapter;
     private NoScrollGridView noScrollGridView;
-    private CardRecordAdapter mAdapter;
-    private ArrayList<CommonBean> attentionData;
     private Handler mHandler;
     private int page = 1;
 
@@ -51,65 +52,46 @@ public class AttentionFragment extends Fragment{
         contentView = inflater.inflate(R.layout.fragment_attention,container,false);
         context = getActivity();
         initViews(contentView);
-        initViews(contentView);
         return contentView;
     }
 
     private void initViews(View contentView) {
         mHandler = new Handler();
-        mAdapter = new CardRecordAdapter(context);
         attentionListView = (HorizontalListView) contentView.findViewById(R.id.attention_lv);
-
-        mRecyclerView = (RefreshRecyclerView) contentView.findViewById(R.id.recycler_view2);
-        mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-        addData();
-        attentionAdapter = new AttentionAdapter(context,attentionData);
-        attentionListView.setAdapter(attentionAdapter);
         noScrollGridView = (NoScrollGridView) contentView.findViewById(R.id.recycler_view);
-        attentionAdapter2 = new AttentionAdapter2(context,mData);
-        mAdapter.addAll(mData);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.dismissSwipeRefresh();
-        noScrollGridView.setAdapter(attentionAdapter2);
-        mRecyclerView.setRefreshAction(new Action() {
-            @Override
-            public void onAction() {
-                mRecyclerView.dismissSwipeRefresh();
-            }
-        });
+        addData();
+        vrAttentionAdapter = new VrAttentionAdapter(context,attentionData);
+        attentionListView.setAdapter(vrAttentionAdapter);
+        vrVideoAdapter = new VrVideoAdapter(context,mData);
+        noScrollGridView.setAdapter(vrVideoAdapter);
 
-        mRecyclerView.setLoadMoreAction(new Action() {
-            @Override
-            public void onAction() {
-                mRecyclerView.showNoMore();
-            }
-        });
         attentionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(context,"点我干哈？",Toast.LENGTH_LONG).show();
+                Toast.makeText(context,attentionData.get(position).getVrVideoName(),Toast.LENGTH_LONG).show();
             }
         });
         noScrollGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                url = mData.get(position).getUrl();
+
+                url = mData.get(position).getVrVideoUrl();
                 mimeType = MimeType.ONLINE | MimeType.VIDEO;
                 start();
             }
         });
 
     }
-
     private void addData() {
         attentionData = new ArrayList<>();
-        for (int i = 0; i < SummaryData.vr_video_icon.length; i++) {
-            attentionData.add(new CommonBean(SummaryData.vr_video_url[i],SummaryData.vr_video_icon[i], SummaryData.vr_video_title[i]));
+        for (int i = 0; i < VrData.attention_icon.length; i++) {
+            attentionData.add(new VrVideoBean(VrData.attention_icon[i], VrData.attention_name[i]));
         }
+
         mData = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            mData.add(new CommonBean(SummaryData.vr_video_url[i],SummaryData.vr_video_icon[i], SummaryData.vr_video_title[i]));
+        for (int i = 0; i < VrData.vr_video_icon.length; i++) {
+            mData.add(new VrVideoBean(VrData.vr_video_icon[i], VrData.vr_video_title[i], VrData.vr_video_url[i],
+                    VrData.attention_icon[i], VrData.attention_name[i], VrData.vr_scan_num[i]));
         }
     }
     private void start() {
@@ -119,14 +101,6 @@ public class AttentionFragment extends Fragment{
                 .setMimeType(mimeType)
                 .setPlaneModeEnabled(false)
                 .setRemoveHotspot(true);//去除中间那个“智障科技图片的”;
-
-//        if ((mimeType & MimeType.BITMAP) != 0) {
-//            //add your own picture here
-//            // this interface may be removed in future version.
-//            configBundle.startEmbeddedActivityWithSpecifiedBitmap(
-//                    this, BitmapUtils.loadBitmapFromRaw(this, R.mipmap.ic_launcher));
-//            return;
-//        }
 
         if (USE_DEFAULT_ACTIVITY)
             configBundle.startEmbeddedActivity(context);

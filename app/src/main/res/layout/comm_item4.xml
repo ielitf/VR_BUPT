@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/transparent"
+    android:layout_gravity="center"
     android:orientation="vertical"
     android:padding="5dp">
 
     <bupt.com.vr_bupt.widget.RoundImageView
-        android:id="@+id/comm_img"
+        android:id="@+id/attention_icon"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@mipmap/default_pic" />
+        android:src="@drawable/a_zhaoliying" />
 
     <TextView
-        android:id="@+id/comm_title"
+        android:id="@+id/attention_name"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/comm_img"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="泰坦尼克号"
+        android:text="赵丽颖"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="@dimen/px10_dp"
         android:textColor="@color/title_gray"
-        android:textSize="15px" />
+        android:textSize="20px" />
 
-</RelativeLayout>
+</LinearLayout>

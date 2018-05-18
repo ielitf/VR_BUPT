@@ -1,31 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/transparent">
+    android:background="@color/white"
+    android:padding="0.5dp">
+
+    <ImageView
+        android:id="@+id/live_pic"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/default_pic" />
+
+    <TextView
+        android:id="@+id/live_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px10_dp"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:text="走进北邮国安" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="1dp">
+        android:layout_alignBottom="@+id/live_pic"
+        android:layout_marginLeft="@dimen/px10_dp"
+        android:layout_marginBottom="@dimen/px10_dp"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/live_pic"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
+        <bupt.com.vr_bupt.widget.RoundImageView
+            android:id="@+id/attention_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:src="@mipmap/default_pic" />
 
         <TextView
-            android:id="@+id/live_text"
+            android:id="@+id/attention_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/px10_dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="赵丽颖"
+            android:textColor="@color/white"
+            android:textSize="20px" />
+        <TextView
+            android:id="@+id/scan_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="走进北邮国安" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/px10_dp"
+            android:layout_marginRight="@dimen/px10_dp"
+            android:text="123"
+            android:textColor="@color/white"
+            android:textSize="20px" />
     </LinearLayout>
-</android.support.v7.widget.CardView>
+
+</RelativeLayout>

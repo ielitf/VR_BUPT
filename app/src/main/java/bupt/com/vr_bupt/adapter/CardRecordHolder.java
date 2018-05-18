@@ -12,14 +12,15 @@ import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
 import com.martin.ads.vrlib.ui.PanoPlayerActivity;
 
 import bupt.com.vr_bupt.R;
-import bupt.com.vr_bupt.bean.CommonBean;
+import bupt.com.vr_bupt.bean.VrVideoBean;
 import bupt.com.vr_bupt.ui.DemoWithGLSurfaceView;
 import cn.lemon.view.adapter.BaseViewHolder;
 
-public class CardRecordHolder extends BaseViewHolder<CommonBean> {
+public class CardRecordHolder extends BaseViewHolder<VrVideoBean> {
+    private TextView vrVideoName,vrAtenTionName,vrScanNum;
+    private ImageView vrVideoPicture,vrAtenTionHeadIcon;
+    private String vrVideoUrl="";
 
-    private ImageView live_img;
-    private TextView live_text;
     private Context context;
     private String title="";
     private String url="";
@@ -27,37 +28,48 @@ public class CardRecordHolder extends BaseViewHolder<CommonBean> {
     private boolean USE_DEFAULT_ACTIVITY = true;
 
     public CardRecordHolder(ViewGroup parent, Context context) {
-        super(parent, R.layout.holder_consume);
+        super(parent, R.layout.vr_video_item);
         this.context=context;
 
     }
 
     @Override
-    public void setData(final CommonBean object) {
+    public void setData(final VrVideoBean object) {
         super.setData(object);
-        title=object.getTitle();
-        if (object.getTitle().equals("")){
-            live_text.setVisibility(View.GONE);
-            live_img.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        title=object.getVrVideoName();
+        if (object.getVrVideoName().equals("")){
+            vrVideoName.setVisibility(View.GONE);
+            vrVideoPicture.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         }else {
-            live_text.setVisibility(View.VISIBLE);
-            live_text.setText(object.getTitle());
-            live_img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            vrVideoName.setVisibility(View.VISIBLE);
+            vrVideoName.setText(object.getVrVideoName());
+            vrVideoPicture.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        live_img.setImageResource(object.getIcon());
+        vrVideoPicture.setImageResource(object.getVrVideoPicture());
+
+        vrVideoName.setText(object.getVrVideoName());
+        vrAtenTionName.setText(object.getVrAtenTionName());
+        vrScanNum.setText(object.getVrScanNum());
+        vrVideoPicture.setImageResource(object.getVrVideoPicture());
+        vrAtenTionHeadIcon.setImageResource(object.getVrAtenTionHeadIcon());
+        vrVideoUrl =  object.getVrVideoUrl();
+
     }
 
     @Override
     public void onInitializeView() {
         super.onInitializeView();
-        live_img = findViewById(R.id.live_pic);
-        live_text = findViewById(R.id.live_text);
+        vrVideoName = findViewById(R.id.live_text);
+        vrAtenTionName = findViewById(R.id.attention_name);
+        vrScanNum = findViewById(R.id.scan_num);
+        vrVideoPicture = findViewById(R.id.live_pic);
+        vrAtenTionHeadIcon = findViewById(R.id.attention_img);
     }
 
     @Override
-    public void onItemViewClick(CommonBean object) {
+    public void onItemViewClick(VrVideoBean object) {
         super.onItemViewClick(object);
-        url = object.getUrl();
+        url = object.getVrVideoUrl();
         mimeType = MimeType.ONLINE | MimeType.VIDEO;
         start();
     }
@@ -68,14 +80,6 @@ public class CardRecordHolder extends BaseViewHolder<CommonBean> {
                 .setMimeType(mimeType)
                 .setPlaneModeEnabled(false)
                 .setRemoveHotspot(true);//去除中间那个“智障科技图片的”;
-
-//        if ((mimeType & MimeType.BITMAP) != 0) {
-//            //add your own picture here
-//            // this interface may be removed in future version.
-//            configBundle.startEmbeddedActivityWithSpecifiedBitmap(
-//                    this, BitmapUtils.loadBitmapFromRaw(this, R.mipmap.ic_launcher));
-//            return;
-//        }
 
         if (USE_DEFAULT_ACTIVITY)
             configBundle.startEmbeddedActivity(context);

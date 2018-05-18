@@ -2,25 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/back"
-    >
+    android:orientation="vertical">
+
     <include
         android:id="@+id/channel_top"
         layout="@layout/main_top"
         android:visibility="visible" />
 
-    <FrameLayout
+
+    <GridView
+        android:id="@+id/recycler_view_channel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/px2_dp"
-        >
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:scrollbars="none" />
 
-        <cn.lemon.view.RefreshRecyclerView
-            android:id="@+id/recycler_view_channel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </FrameLayout>
 
 </LinearLayout>

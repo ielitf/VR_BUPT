@@ -78,7 +78,7 @@ public class CardRecordHolder extends BaseViewHolder<VrVideoBean> {
                 .newInstance()
                 .setFilePath(url)
                 .setMimeType(mimeType)
-                .setPlaneModeEnabled(false)
+                .setPlaneModeEnabled(true)
                 .setRemoveHotspot(true);//去除中间那个“智障科技图片的”;
 
         if (USE_DEFAULT_ACTIVITY)

@@ -1,32 +1,24 @@
 package bupt.com.vr_bupt.ui;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.martin.ads.vrlib.constant.MimeType;
-import com.martin.ads.vrlib.ext.GirlFriendNotFoundException;
-import com.martin.ads.vrlib.ui.Pano360ConfigBundle;
-import com.martin.ads.vrlib.ui.PanoPlayerActivity;
-import com.nbsp.materialfilepicker.ui.FilePickerActivity;
+import com.umeng.socialize.UMShareAPI;
 
 import bupt.com.vr_bupt.R;
-import bupt.com.vr_bupt.control.CodeConstants;
 import bupt.com.vr_bupt.ui.channel.ChannelFragment;
 import bupt.com.vr_bupt.ui.main.HomeFragment;
 import bupt.com.vr_bupt.ui.me.MeFragment;
 import bupt.com.vr_bupt.ui.news.NewsFragment;
 import bupt.com.vr_bupt.ui.publish.PublishActivity;
-import bupt.com.vr_bupt.utils.ImageUtils;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnClickListener {
     private TextView[] textViews = new TextView[4];
@@ -175,6 +167,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnCli
                 break;
         }
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
 
 }

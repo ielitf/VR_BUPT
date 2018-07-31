@@ -1,1 +1,1 @@
-include ':app', ':filepicker', ':vrlib', ':RefreshRecyclerView', ':mylibrary'
+include ':app', ':filepicker', ':vrlib', ':RefreshRecyclerView', ':mylibrary', ':paylibrary-release'

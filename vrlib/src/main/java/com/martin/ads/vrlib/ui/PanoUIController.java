@@ -28,6 +28,7 @@ public class PanoUIController {
     private ToggleButton dualScreenBtn;       // 单双屏
     private ImageView backBtn;
     private ImageView screenshotBtn;
+    private ImageView shareBtn;
 
     private RelativeLayout progressToolbar;
     private SeekBar processSeekBar;                    // 播放进度条
@@ -65,6 +66,7 @@ public class PanoUIController {
         dualScreenBtn= (ToggleButton) controlToolbar.findViewById(R.id.dualScreen_btn);
         backBtn= (ImageView) controlToolbar.findViewById(R.id.back_btn);
         screenshotBtn= (ImageView) controlToolbar.findViewById(R.id.screenshot_btn);
+        shareBtn= (ImageView) controlToolbar.findViewById(R.id.share_btn);
         //progressToolbar
         processSeekBar= (SeekBar) progressToolbar.findViewById(R.id.progress_seek_bar);
         currTimeText = (TextView) progressToolbar.findViewById(R.id.txt_time_curr);
@@ -114,7 +116,13 @@ public class PanoUIController {
                 uiCallback.requestScreenshot();
             }
         });
-
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startHideControllerTimer();
+                uiCallback.share();
+            }
+        });
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,6 +168,7 @@ public class PanoUIController {
     }
 
     public interface UICallback{
+        void share();
         void requestScreenshot();
         void requestFinish();
         void changeDisPlayMode();

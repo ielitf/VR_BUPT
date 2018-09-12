@@ -26,6 +26,8 @@ import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,10 +94,19 @@ public class MeFragment extends Fragment implements View.OnClickListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        new ShareAction(getActivity()).withText("hello")
-                                .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ,SHARE_MEDIA.QZONE,
-                                        SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE)
-                                .setCallback(shareListener).open();
+                        UMImage image = new UMImage(context, R.drawable.a_zhaoliying);//资源文件
+                        UMWeb web = new UMWeb("http://www.crystalnet.com.cn/");
+                        web.setTitle("北京北邮国安技术股份有限公司");//标题
+                        web.setThumb(image);  //缩略图
+                        web.setDescription("北京北邮国安技术股份有限公司（简称：北邮国安）是由北京众华科瑞先宽带网络技术有限公司、中信国安信息产业股份有限公司（深市：000839）、北京邮电大学等股东共同发起成立的高新技术企业。");//描述
+
+                        if (Build.VERSION.SDK_INT >= 23 && (context.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+                            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
+                        } else
+                            new ShareAction(getActivity()).withMedia(web)
+                                    .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ,SHARE_MEDIA.QZONE,
+                                            SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE)
+                                    .setCallback(shareListener).open();
                         break;
                     default:
                         break;

@@ -45,6 +45,7 @@ public class AttentionFragment extends Fragment{
     private int page = 1;
 
     private String url="";
+    private int videoImage;
     private int mimeType;
     private boolean USE_DEFAULT_ACTIVITY = true;
     @Override
@@ -76,6 +77,7 @@ public class AttentionFragment extends Fragment{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 url = mData.get(position).getVrVideoUrl();
+                videoImage = mData.get(position).getVrVideoPicture();
                 mimeType = MimeType.ONLINE | MimeType.VIDEO;
                 start();
             }
@@ -103,7 +105,7 @@ public class AttentionFragment extends Fragment{
                 .setRemoveHotspot(true);//去除中间那个“智障科技图片的”;
 
         if (USE_DEFAULT_ACTIVITY)
-            configBundle.startEmbeddedActivity(context);
+            configBundle.startEmbeddedActivityWithSpecifiedBitmap(context,url,videoImage);
         else {
             Intent intent = new Intent(context, DemoWithGLSurfaceView.class);
             intent.putExtra(PanoPlayerActivity.CONFIG_BUNDLE, configBundle);

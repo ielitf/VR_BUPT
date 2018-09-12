@@ -24,6 +24,7 @@ public class CardRecordHolder extends BaseViewHolder<VrVideoBean> {
     private Context context;
     private String title="";
     private String url="";
+    private int videoImage;
     private int mimeType;
     private boolean USE_DEFAULT_ACTIVITY = true;
 
@@ -70,6 +71,7 @@ public class CardRecordHolder extends BaseViewHolder<VrVideoBean> {
     public void onItemViewClick(VrVideoBean object) {
         super.onItemViewClick(object);
         url = object.getVrVideoUrl();
+        videoImage = object.getVrVideoPicture();
         mimeType = MimeType.ONLINE | MimeType.VIDEO;
         start();
     }
@@ -82,7 +84,7 @@ public class CardRecordHolder extends BaseViewHolder<VrVideoBean> {
                 .setRemoveHotspot(true);//去除中间那个“智障科技图片的”;
 
         if (USE_DEFAULT_ACTIVITY)
-            configBundle.startEmbeddedActivity(context);
+            configBundle.startEmbeddedActivityWithSpecifiedBitmap(context,url,videoImage);
         else {
             Intent intent = new Intent(context, DemoWithGLSurfaceView.class);
             intent.putExtra(PanoPlayerActivity.CONFIG_BUNDLE, configBundle);

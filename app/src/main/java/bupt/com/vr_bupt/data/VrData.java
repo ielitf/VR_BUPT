@@ -9,15 +9,19 @@ import bupt.com.vr_bupt.R;
 
 public class VrData {
     //VR视频
-    public static int[] vr_video_icon = new int[]{R.drawable.v_vedio1, R.drawable.v_vedio2,
+    public static int[] vr_video_icon = new int[]{
+            R.drawable.v_fish,
+            R.drawable.v_chinajoy,R.drawable.v_vedio1, R.drawable.v_vedio2,
             R.drawable.v_vedio3,
             R.drawable.v_vedio4, R.drawable.v_vedio5,
             R.drawable.v_vedio6, R.drawable.v_vedio7,
             R.drawable.v_vedio8, R.drawable.v_vedio9};
-    public static String[] vr_video_title = new String[]{"VR视频1", "带你去西藏",
+    public static String[] vr_video_title = new String[]{"fish","v_chinajoy","VR视频1", "带你去西藏",
             "VR视频3","VR视频4", "VR视频5","VR视频6", "VR视频7",
             "加勒比海巴哈马旅游-音乐版", "泰国大城府遗迹延时"};
     public static String[] vr_video_url = new String[]{
+            "http://182.18.26.6/VID_20180907_120742.mp4",
+            "http://cache.utovr.com/201508270528174780.m3u8",
             "http://182.18.26.6/demo.mp4",
             "http://182.18.26.6/带你去西藏.mp4",
             "http://182.18.26.6/1aaefce3a443cda38f153c09cd63cdcf.mp4",

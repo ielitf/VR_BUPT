@@ -33,6 +33,8 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMVideo;
 
 /**
  * Created by Ads on 2016/11/10.
@@ -103,12 +105,18 @@ public class PanoPlayerActivity extends Activity {
 
             @Override
             public void share() {
+                UMImage image = new UMImage(PanoPlayerActivity.this, getIntent().getIntExtra("videoImage",0));//资源文件
+                UMVideo video = new UMVideo(getIntent().getStringExtra("videoUrl"));
+                video.setTitle("这是标题");//视频的标题
+                video.setThumb(image);//视频的缩略图
+                video.setDescription("这是一个VR视频。");//视频的描述
                 if (Build.VERSION.SDK_INT >= 23 && (PanoPlayerActivity.this.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
                     ActivityCompat.requestPermissions(PanoPlayerActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
                 } else
                     new ShareAction(PanoPlayerActivity.this).withText("hello")
                             .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.QQ,SHARE_MEDIA.QZONE,
                                     SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE)
+                            .withMedia(video)
                             .setCallback(shareListener).open();
             }
 

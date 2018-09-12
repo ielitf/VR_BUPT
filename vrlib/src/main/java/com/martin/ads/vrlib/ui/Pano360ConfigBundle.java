@@ -49,7 +49,13 @@ public class Pano360ConfigBundle implements Serializable{
         intent.putExtra("bitmap",bitmap);
         context.startActivity(intent);
     }
-
+    public void startEmbeddedActivityWithSpecifiedBitmap(Context context,String videoUrl,int videoImage){
+        Intent intent=new Intent(context,PanoPlayerActivity.class);
+        intent.putExtra(PanoPlayerActivity.CONFIG_BUNDLE,this);
+        intent.putExtra("videoUrl",videoUrl);
+        intent.putExtra("videoImage",videoImage);
+        context.startActivity(intent);
+    }
     public String getFilePath() {
         return filePath;
     }
